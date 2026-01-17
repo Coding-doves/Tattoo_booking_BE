@@ -8,7 +8,10 @@ app = FastAPI()
 # Allow vercel.app and localhost origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://legit-ink-tatoo.vercel.app/", "http://localhost:5000"],
+    allow_origins=[
+        "https://legit-ink-tatoo.vercel.app/",
+        "https://www.legitinktattoo.com"
+        "http://localhost:5500"],
     allow_methods=['GET', 'POST'],
     allow_headers=["*"],
 )
