@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import instafeed
+from routers import instafeed, booking_mail
 
 app = FastAPI()
 
@@ -14,6 +14,7 @@ app.add_middleware(
 )
 
 app.include_router(instafeed.feed_router, prefix="/api/v1/instafeed", tags=["Instafeed"])
+app.includer_router(booking_mail.booking_mail_router, prefix="api/v1/send-booking-mail", tags=["Booking Mail"])
 
 
 @app.get("/")

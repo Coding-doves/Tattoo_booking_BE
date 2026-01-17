@@ -4,11 +4,12 @@ A FastAPI-based backend service for the Legit Ink Tattoo booking system.
 
 ## Description
 
-This API provides backend functionality for the Legit Ink Tattoo application, including integration with Instagram feeds for displaying tattoo portfolio and updates.
+This API provides backend functionality for the Legit Ink Tattoo application, including integration with Instagram feeds for displaying tattoo portfolio and updates, and handling booking email notifications.
 
 ## Features
 
 - Instagram feed integration to fetch and display media posts
+- Booking email notifications
 - CORS support for frontend integration
 - FastAPI framework for high performance and automatic API documentation
 
@@ -65,6 +66,12 @@ Once the server is running, you can access the interactive API documentation at:
   - Requires `INSTAGRAM_TOKEN` environment variable
   - Response: JSON array of Instagram media objects with fields: id, caption, media_url, permalink, media_type
 
+### Booking Mail
+- **POST** `/api/v1/booking-mail/` (planned)
+  - Sends a booking email notification
+  - Request body: JSON object with name, email, booking_date, message
+  - Response: None (204 No Content on success)
+
 ## Environment Variables
 
 - `INSTAGRAM_TOKEN`: Instagram Graph API access token for fetching feed data
@@ -90,5 +97,3 @@ The API is configured to allow requests from:
 4. Submit a pull request
 
 ## License
-
-[Add your license information here]
