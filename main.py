@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 app.include_router(instafeed.feed_router, prefix="/api/v1/instafeed", tags=["Instafeed"])
-app.include_router(booking_mail.booking_mail_router, prefix="api/v1/send-booking-mail", tags=["Booking Mail"])
+app.include_router(booking_mail.booking_mail_router, prefix="/api/v1/send-booking-mail", tags=["Booking Mail"])
 
 
 @app.get("/")
