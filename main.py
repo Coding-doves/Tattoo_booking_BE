@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from routers import instafeed, booking_mail
 
-app = FastAPI()
+app = FastAPI(redirect_slashes=False)
 
 # Allow vercel.app and localhost origins
 app.add_middleware(
