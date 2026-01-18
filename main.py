@@ -9,9 +9,10 @@ app = FastAPI(redirect_slashes=False)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://legit-ink-tatoo.vercel.app/",
-        "https://www.legitinktattoo.com"
-        "http://127.0.0.1:5500"],
+        "https://legit-ink-tatoo.vercel.app",
+        "https://www.legitinktattoo.com",
+        "http://127.0.0.1:5500",
+    ],
     allow_methods=['GET', 'POST'],
     allow_headers=["*"],
 )
