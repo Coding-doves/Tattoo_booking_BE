@@ -1,11 +1,12 @@
 from pydantic import BaseModel, EmailStr
-from datetime import date
+from datetime import datetime
 from typing import Optional
 
 class BookingRequest(BaseModel):
+    form_type: str
     name: str
     email: EmailStr
-    booked_date: Optional[date] = None
+    date: Optional[datetime] = None
     phone: Optional[str] = None
-    app_goal: Optional[str] = None
-    desription: str
+    service: Optional[str] = None
+    content: str
