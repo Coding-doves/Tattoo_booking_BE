@@ -14,4 +14,4 @@ async def send_booking_mail(booking_details: form_request.BookingRequest) -> dic
     
     print(booking_details.model_dump())
     
-    return {"message": "Booking received"}
+    return {"message": "Booking received yeah!"}
