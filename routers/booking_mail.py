@@ -68,7 +68,7 @@ async def send_booking_mail(
         </html>
     """
 
-    mail_response = await send_mail.send_mail(booking_details, html_body)
+    mail_response = await send_mail.send_mail(html_body)
     
     if mail_response["message"] == "Email sent successfully!":
         await send_response_mail(booking_details)
@@ -132,4 +132,4 @@ async def send_response_mail(
     </html>
     """
     
-    return await send_mail(mail_details, html_template)
+    return await send_mail(html_template, mail_details.email)

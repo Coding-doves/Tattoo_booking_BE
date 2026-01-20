@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
+from pydantic import EmailStr
 import os
 
 from schemas import form_request
@@ -21,10 +22,12 @@ conf = ConnectionConfig(
 )
 
 
-async def send_mail(details: form_request.BookingRequest, content) -> dict:
+async def send_mail(
+    content, email: EmailStr = "legitinktattoo@gmail.com"
+) -> dict:
     message = MessageSchema(
-        subject=f"{details.form_type} by {details.name}",
-        recipients=["legitinktattoo@gmail.com"],
+        subject=f"New Message",
+        recipients=[email],
         body=content,
         subtype=MessageType.html
     )
