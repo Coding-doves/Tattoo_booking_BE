@@ -46,9 +46,11 @@ async def send_booking_mail(
                 <title>New Message Received</title>
             </head>
             <body style="font-family: Arial, sans-serif;">
-                <h2 style="color:#c2a74e">Hi Legit Ink Team</h2>
+                <h1>Yov've got a mail from{booking_details.name} 🎉!</h1>
+                
+                <p>Hello <strong>Legit Ink</strong></p>
 
-                <p>You recevied a new request. Below are the details:</p>
+                <p>You received a new request. Below are the details:</p>
                 <h3>Client Details</h3>
                 <ul>
                     <li><strong>Name:</strong> {booking_details.name}</li>
