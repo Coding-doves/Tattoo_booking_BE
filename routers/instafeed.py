@@ -1,7 +1,7 @@
+from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException
 import httpx
 import os
-from dotenv import load_dotenv
 
 load_dotenv()
 feed_router = APIRouter()
