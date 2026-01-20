@@ -1,7 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 
 from schemas import form_request
-from services import send_mail
+from services.send_mail import send_mail
 
 booking_mail_router = APIRouter()
 
@@ -43,13 +43,12 @@ async def send_booking_mail(
         <!DOCTYPE html>
         <html>
             <head>
-                <title>New Booking Received</title>
+                <title>New Message Received</title>
             </head>
             <body style="font-family: Arial, sans-serif;">
-                <h2>📩 {booking_details.form_type}</h2>
+                <h2 style="color:#c2a74e">Hi Legit Ink Team</h2>
 
-                <hr />
-
+                <p>You recevied a new request. Below are the details:</p>
                 <h3>Client Details</h3>
                 <ul>
                     <li><strong>Name:</strong> {booking_details.name}</li>
@@ -59,24 +58,17 @@ async def send_booking_mail(
 
                 {booking_section}
 
-                <hr />
+                <br />
 
-                <p>
+                <small>
                     This booking was submitted from the Legit Ink Tattoo website.
-                </p>
+                </small>
             </body>
         </html>
     """
 
-    mail_response = await send_mail.send_mail(html_body)
-    
-    if mail_response["message"] == "Email sent successfully!":
-        await send_response_mail(booking_details)
-        return mail_response
-    
-    return mail_response
-        
-    
+    return await send_mail(html_body, booking_details.form_type, "legitinktattoo@gmail.com")
+ 
 
 @booking_mail_router.post("/response-mail")
 async def send_response_mail(
@@ -132,4 +124,4 @@ async def send_response_mail(
     </html>
     """
     
-    return await send_mail(html_template, mail_details.email)
+    return await send_mail(html_template, mail_details.form_type, mail_details.email)
