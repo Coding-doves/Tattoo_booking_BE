@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from fastapi_mail import ConnectionConfig, Message, MessageSchema, MessageType
+from fastapi_mail import ConnectionConfig, MessageSchema, MessageType
 import os
 
 from schemas import form_request
