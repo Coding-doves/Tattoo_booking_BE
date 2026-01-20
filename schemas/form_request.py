@@ -9,4 +9,4 @@ class BookingRequest(BaseModel):
     date: Optional[datetime] = None
     phone: Optional[str] = None
     service: Optional[str] = None
-    content: str
+    content: Optional[str] = None
